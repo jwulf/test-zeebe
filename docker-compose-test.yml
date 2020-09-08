@@ -1,0 +1,15 @@
+version: "3.7"
+
+networks:
+  test-zeebe_gaia_network:
+    external: true
+
+services:
+  test-zeebe:
+    container_name: test-zeebe
+    build: .
+    networks:
+      - test-zeebe_gaia_network
+    command: sh -c './zbctl --insecure deploy test-zeebe.bpmn && node index.js'
+    external_links:
+      - zeebe:zeebe
