@@ -10,6 +10,6 @@ services:
     build: .
     networks:
       - test-zeebe_gaia_network
-    command: sh -c './zbctl --insecure deploy test-zeebe.bpmn && node index.js'
+    command: node index.js
     external_links:
       - zeebe:zeebe
